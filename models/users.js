@@ -8,7 +8,7 @@ const usersSchema = new mongoose.Schema({
     UserPassword : String,
     Admin : {
         type: Boolean,
-        default: false
+        default: true
     }
 });
 
