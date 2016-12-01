@@ -1,0 +1,29 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "mehmet api",
+  "main": "index.js",
+  "scripts": {
+    "test": "yok"
+  },
+  "author": "Mehmet celik",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "grunt": "^1.0.1",
+    "hbs": "^4.0.1",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "import-export": "^1.0.1",
+    "jquery": "^3.1.1",
+    "mongoose": "^4.6.8",
+    "morgan": "^1.7.0",
+    "mpromise": "^0.5.5",
+    "node-restful": "^0.2.5",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7",
+    "request": "^2.79.0",
+    "url": "^0.11.0"
+  }
+}
