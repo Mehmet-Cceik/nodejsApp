@@ -125,13 +125,13 @@
                                  if(username==item.UserEmail && password==item.UserPassword){
                                      window.sessionStorage.setItem("userId",item._id);
                                      boo = false;
-                                     window.location = "/admin";
-                                     return;
+                                     window.location = "admin";
+                                     //return
                                  }
                               });
-                              if(boo){
-                                  alert("Hatalı Giriş");
-                              }
+                              //if(boo){
+                              //    alert("Hatalı Giriş");
+                              //}
                           });
                       });
                   $scope.kaydol = function () {
