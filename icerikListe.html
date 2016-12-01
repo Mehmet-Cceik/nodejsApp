@@ -324,7 +324,7 @@
         if(id != null){
             var app = angular.module('myApp', []);
             app.controller('myCtrl', function($scope, $http) {
-                $http.get("http://127.0.0.1:3333/api/users/" + id)//KULLANICI ÇEKİYOR
+                $http.get("/api/users/" + id)//KULLANICI ÇEKİYOR
                     .then(function(response) {
                         if(response.data.Admin){
                             $scope.userName = response.data.UserName;
@@ -335,19 +335,19 @@
                         }
                     });
 
-                $http.get("http://127.0.0.1:3333/api/icerik/")//İÇERİK ÇEKİYOR
+                $http.get("/api/icerik/")//İÇERİK ÇEKİYOR
                     .then(function(response) {
                         $scope.icerik = response.data;
                     });
                 $scope.sil = function (_id) {
-                    $http.delete("http://127.0.0.1:3333/api/icerik/"+_id)//SİLİYOR
+                    $http.delete("/api/icerik/"+_id)//SİLİYOR
                         .then(function(response) {
                             window.location = "/icerik";
                             console.log(response.data);
                         });
                 };
                 $scope.guncelle = function (_id) {
-                    $http.get("http://127.0.0.1:3333/api/icerik/"+_id)//value Geliyor
+                    $http.get("/api/icerik/"+_id)//value Geliyor
                         .then(function(response) {
                             $scope.gun = response.data;
                         });
@@ -363,7 +363,7 @@
                         segment : $scope.gun.segment,
                         videourl : $scope.gun.videourl
                     };
-                    $http.put("http://127.0.0.1:3333/api/icerik/"+_id, veri)//güncelliyor
+                    $http.put("/api/icerik/"+_id, veri)//güncelliyor
                         .then(function(response) {
                             window.location = "/icerik"
                         });

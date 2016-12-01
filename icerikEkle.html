@@ -275,7 +275,7 @@
     if(id != null){
         var app = angular.module('myApp', []);
         app.controller('myCtrl', function($scope, $http) {
-            $http.get("http://127.0.0.1:3333/api/users/" + id)
+            $http.get("/api/users/" + id)
                 .then(function(response) {
                     if(response.data.Admin){
                         $scope.userName = response.data.UserName;
@@ -296,7 +296,7 @@
                     segment : $scope.gun.segment,
                     videourl : $scope.gun.videourl
                 };
-                $http.post("http://127.0.0.1:3333/api/icerik/", veri)//güncelliyor
+                $http.post("/api/icerik/", veri)//güncelliyor
                     .then(function(response) {
                         window.location = "/icerik"
                     });
