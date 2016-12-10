@@ -32,13 +32,10 @@
     <link rel="stylesheet" href="./assets/lib/animate.css/animate.css">
 
 
-
-
-
-
 </head>
 
-<body ng-app="myApp"  ng-controller="myCtrl" ng-show="Admin">
+<body ng-app="myApp" id="body" style="display:none" ng-show="icerik" ng-controller="myCtrl">
+
 <div class="bg-dark dk" id="wrap">
     <div id="top">
         <!-- .navbar -->
@@ -83,8 +80,8 @@
                     <!-- .nav -->
                     <ul class="nav navbar-nav">
                         <li><a href="admin">Anasayfa</a></li>
-                        <li ng-show="Admin"><a href="icerikEkle">İçerik Ekle</a></li>
-                        <li ng-show="Admin"><a href="icerik">İçerik Listele</a></li>
+                        <li ><a href="icerikEkle">İçerik Ekle</a></li>
+                        <li ><a href="icerik">İçerik Listele</a></li>
 
                         </li>
                     </ul>
@@ -130,12 +127,12 @@
                     <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;Anasayfa</span>
                 </a>
             </li>
-            <li ng-show="Admin" class="">
+            <li class="">
                 <a href="icerikEkle">
                     <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;İçerik Ekle</span>
                 </a>
             </li>
-            <li ng-show="Admin" class="">
+            <li class="">
                 <a href="icerik">
                     <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;İçerik Listele</span>
                 </a>
@@ -144,7 +141,7 @@
         <!-- /#menu -->
     </div>
     <!-- /#left -->
-    <div id="content">
+    <div id="content"  >
         <div class="outer">
             <div class="inner bg-light lter">
                 <!--Begin Datatables-->
@@ -313,26 +310,26 @@
 
 
 <script src="./assets/lib/angular.min.js"></script>
+
 <script>
     $(function() {
         Metis.MetisTable();
         Metis.metisSortable();
     });
 </script>
+
+
 <script type="text/javascript">
+
         var id = window.sessionStorage.getItem("userId");
         if(id != null){
             var app = angular.module('myApp', []);
             app.controller('myCtrl', function($scope, $http) {
+                $scope.icerik= [];
+                $("#body").show();
                 $http.get("/api/users/" + id)//KULLANICI ÇEKİYOR
                     .then(function(response) {
-                        if(response.data.Admin){
                             $scope.userName = response.data.UserName;
-                            $scope.Admin = true;
-                        }else{
-                            $scope.Admin = false;
-                            window.location = "admin";
-                        }
                     });
 
                 $http.get("/api/icerik/")//İÇERİK ÇEKİYOR
@@ -372,9 +369,10 @@
         }
         else{
             console.log("asdasd");
-            window.location = "adminLogin";
+            window.location = "/adminLogin";
         }
 </script>
+
 <script type="text/javascript">
     $(document).ready(function () {
         $(".cikis").click(function () {

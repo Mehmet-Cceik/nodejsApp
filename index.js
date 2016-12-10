@@ -2,6 +2,7 @@ const express = require("express");
 const  mongoose = require("mongoose");
 const request = require('request');
 const path = require("path");
+//angular.module('myApp', [require('angular-route')]);
 const bodyParser = require("body-parser");
 mongoose.connect("mongodb://localhost/dbMehmet");
 const app = express();

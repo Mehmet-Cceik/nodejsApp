@@ -38,7 +38,7 @@
 
 </head>
 
-<body ng-app="myApp"  ng-controller="myCtrl" ng-show="Admin">
+<body ng-app="myApp" id="body" style="display:none" ng-show="userName" ng-controller="myCtrl">
 <div class="bg-dark dk" id="wrap">
     <div id="top">
         <!-- .navbar -->
@@ -68,7 +68,7 @@
                         </a>
                     </div>
                     <div class="btn-group">
-                        <a href="adminLogin" data-toggle="tooltip" data-original-title="Logout" data-placement="bottom"
+                        <a href="/adminLogin" data-toggle="tooltip" data-original-title="Logout" data-placement="bottom"
                            class="btn btn-metis-1 btn-sm cikis">
                             <i class="fa fa-power-off"></i>
                         </a>
@@ -82,9 +82,9 @@
 
                     <!-- .nav -->
                     <ul class="nav navbar-nav">
-                        <li><a href="admin">Anasayfa</a></li>
-                        <li ng-show="Admin"><a href="icerikEkle">İçerik Ekle</a></li>
-                        <li ng-show="Admin"><a href="icerik">İçerik Listele</a></li>
+                        <li><a href="/admin">Anasayfa</a></li>
+                        <li ><a href="/icerikEkle">İçerik Ekle</a></li>
+                        <li ><a href="/icerik">İçerik Listele</a></li>
 
                         </li>
                     </ul>
@@ -126,17 +126,17 @@
             <li class="nav-header">Menu</li>
             <li class="nav-divider"></li>
             <li class="">
-                <a href="admin">
+                <a href="/admin">
                     <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;Anasayfa</span>
                 </a>
             </li>
-            <li ng-show="Admin" class="">
-                <a href="icerikEkle">
+            <li class="">
+                <a href="/icerikEkle">
                     <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;İçerik Ekle</span>
                 </a>
             </li>
-            <li ng-show="Admin" class="">
-                <a href="icerik">
+            <li class="">
+                <a href="/icerik">
                     <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;İçerik Listele</span>
                 </a>
             </li>
@@ -156,22 +156,15 @@
                 <div class="form-group">
                     <label class="control-label col-lg-4">İçerik Tipi : </label>
                     <div class="col-lg-8" align="left">
-                        <div class="checkbox">
                             <label>
-                                <input class="uniform" type="radio" name="icerikTipi" ng-model="gun.icerikTipi" value="information" checked="">information
+                                <input style="margin-left: 20px " class="uniform"  type="radio"  ng-model="gun.icerikTipi" value="information" >information
                             </label>
-                        </div>
-                        <!-- /.checkbox -->
-                        <div class="checkbox">
                             <label>
-                                <input class="uniform" type="radio" name="icerikTipi" ng-model="gun.icerikTipi" value="reklam">reklam
+                                <input style="margin-left: 15px " class="uniform" type="radio"  ng-model="gun.icerikTipi" value="reklam">reklam
                             </label>
-                        </div>
-                        <div class="checkbox">
                             <label>
-                                <input class="uniform" type="radio" name="icerikTipi" ng-model="gun.icerikTipi" value="media">media
+                                <input style="margin-left: 15px " class="uniform" type="radio" ng-model="gun.icerikTipi" value="media">media
                             </label>
-                        </div>
                     </div>
                 </div>
                 <label class="control-label col-lg-3" for="icerikUrl">İçerik Url :</label>
@@ -179,37 +172,29 @@
                 <div class="form-group">
                     <label class="control-label col-lg-4">İçerik Url Target : </label>
                     <div class="col-lg-8" align="left">
-                        <div class="checkbox">
-                            <label>
-                                <input class="uniform" type="radio" name="icerikUrlTarget" ng-model="gun.icerikUrlTarget" value="Inside" checked="">Inside
-                            </label>
-                        </div>
-                        <!-- /.checkbox -->
-                        <div class="checkbox">
-                            <label>
-                                <input class="uniform" type="radio" name="icerikUrlTarget" ng-model="gun.icerikUrlTarget" value="Outside">Outside
-                            </label>
-                        </div>
+                        <label>
+                            <input style="margin-left: 20px " type="radio" name="icerikUrlTarget" ng-model="gun.icerikUrlTarget" value="Inside">Inside
+                        </label>
+                        <label>
+                            <input style="margin-left: 15px " type="radio" name="icerikUrlTarget" ng-model="gun.icerikUrlTarget" value="Outside">Outside
+                        </label>
                     </div>
                 </div>
-                <div class="form-group">
+                <div >
                     <label class="control-label col-lg-4">İçerik Url Target : </label>
                     <div class="col-lg-8" align="left">
-                        <div class="checkbox">
-                            <label>
-                                <input class="uniform" type="radio" name="segment" ng-model="gun.segment" value="Bay" checked="">Bay
-                            </label>
-                        </div>
-                        <!-- /.checkbox -->
-                        <div class="checkbox">
-                            <label>
-                                <input class="uniform" type="radio" name="segment" ng-model="gun.segment" value="Bayan">Bayan
-                            </label>
-                        </div>
+                        <label>
+                            <input style="margin-left: 20px " type="radio" name="segment" ng-model="gun.segment" value="Bay" >Bay
+                        </label>
+                        <label>
+                            <input style="margin-left: 15px " type="radio" name="segment" ng-model="gun.segment" value="Bayan">Bayan
+                        </label>
                     </div>
                 </div>
                 <label class="control-label col-lg-3" for="videourl">Video Url :</label>
+
                 <input id="videourl" style="width: 50%" type="text" ng-model="gun.videourl" class="form-control"><br>
+
                 <a ng-click="ekle()" class="btn btn-default btn-lg btn-round btn-line" data-original-title="Ekle" title="Ekle">Ekle</a>
             </div>
 
@@ -275,15 +260,11 @@
     if(id != null){
         var app = angular.module('myApp', []);
         app.controller('myCtrl', function($scope, $http) {
+            $scope.userName = "";
+            $("#body").show();
             $http.get("/api/users/" + id)
                 .then(function(response) {
-                    if(response.data.Admin){
                         $scope.userName = response.data.UserName;
-                        $scope.Admin = true;
-                    }else{
-                        $scope.Admin = false;
-                        window.location = "admin";
-                    }
                 });
             $scope.ekle = function () {
                 var veri = {
@@ -305,7 +286,7 @@
     }
     else{
         console.log("asdasd");
-        window.location = "adminLogin";
+        window.location = "/adminLogin";
     }
 </script>
 <script type="text/javascript">

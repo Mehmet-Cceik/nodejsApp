@@ -115,7 +115,6 @@
       <script type="text/javascript">
               var app = angular.module('myApp', []);
               app.controller('myCtrl', function($scope, $http) {
-                  //var path = window.location.hostname;
                   $http.get("/api/users")
                       .then(function(response) {
                           $(".bt-giris").click(function () {
@@ -123,10 +122,10 @@
                               var password = $(".txPassword").val();
                               var boo = true;
                               response.data.forEach(function (item, index) {
-                                 if(username==item.UserEmail && password==item.UserPassword){
+                                 if(username==item.UserEmail && password==item.UserPassword && true==item.Admin){
                                      window.sessionStorage.setItem("userId",item._id);
                                      boo = false;
-                                     window.location = "admin";
+                                     window.location = "/admin";
                                      return
                                  }
                               });
@@ -143,10 +142,9 @@
 
                       };
                       if($scope.username!=null && $scope.email!=null && $scope.password!=null){
-                          //var path = window.location.hostname;
                           $http.post("/api/users", yenikayit)//value Geliyor
                               .then(function(response) {
-                                  window.location = "adminLogin"
+                                  window.location = "/adminLogin"
                               });
                       }
 
